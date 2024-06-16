@@ -1,0 +1,17 @@
+name: 'test'
+
+on:
+  workflow_dispatch:
+    
+  
+jobs:
+  testing:
+    runs-on: self-hosted
+    
+    env:
+      anun: "test-${{ github.sha }}"
+    
+    steps:
+      - name: 'Run Dockerhub image'
+        run: |
+          docker run -d -p 3000:3001 --name ${{ env.anun }}  arturgrigoryan1/news_letter:${{ github.sha }} 
