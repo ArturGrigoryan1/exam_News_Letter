@@ -6,6 +6,7 @@ on:
 jobs:
   development:
     runs-on: self-hosted
+    
     env:
       anun: "dev-${{ github.sha }}"
     
