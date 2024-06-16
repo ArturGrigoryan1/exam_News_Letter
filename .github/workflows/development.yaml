@@ -10,7 +10,7 @@ jobs:
   development:
     runs-on: self-hosted
     env:
-      anun: "${{ environment }}-${{ github.sha }}"
+      anun: "$environment-${{ github.sha }}"
     
     steps:
       - name: Checkout
