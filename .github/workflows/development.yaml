@@ -3,14 +3,11 @@ name: 'dev'
 on:
   push:
   
-env:
-  environment: dev
-  
 jobs:
   development:
     runs-on: self-hosted
     env:
-      anun: "${{ env.environment }}-${{ github.sha }}"
+      anun: "dev-${{ github.sha }}"
     
     steps:
       - name: Checkout
