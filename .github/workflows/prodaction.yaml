@@ -9,7 +9,9 @@ jobs:
      runs-on: self-hosted
      env:
       name: "prod-${{  github.ref_name }}"
+      dockerhub-username: "arturgrigoryan1"
+      repository-name: "news_letter"
      steps:
        - name: 'Run image from Dockerhub'
          run: |
-           docker run -d -p 8080:3000 --name ${{ env.name }}  arturgrigoryan1/news_letter:${{ github.sha }} 
+           docker run -d -p 8080:3000 --name ${{ env.name }}  ${{ env.dockerhub-username }}/${{ env.repository-name }}:${{ github.sha }} 
