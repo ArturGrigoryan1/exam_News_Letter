@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: 'Run our images'
+      - name: 'Run images'
         run: |
           docker build -t ${{ env.name }}:${{ github.sha }}  .
           docker run -d -p 3000:3000 --name ${{ env.name }}  ${{ env.name }}:${{ github.sha }}  
