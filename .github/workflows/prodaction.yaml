@@ -8,8 +8,8 @@ jobs:
   deploy:
      runs-on: self-hosted
      env:
-      anun: "prod-${{  github.ref_name }}"
+      name: "prod-${{  github.ref_name }}"
      steps:
-       - name: 'Run Dockerhub image'
+       - name: 'Run image from Dockerhub'
          run: |
-           docker run -d -p 8080:3000 --name ${{ env.anun }}  arturgrigoryan1/news_letter:${{ github.sha }} 
+           docker run -d -p 8080:3000 --name ${{ env.name }}  arturgrigoryan1/news_letter:${{ github.sha }} 
